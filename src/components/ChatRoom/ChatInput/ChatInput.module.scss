@@ -1,0 +1,39 @@
+.chatIput {
+  background-color: #202c33;
+  position: relative;
+  z-index: 1;
+  padding: 5px 10px;
+  height: var(--height);
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  input {
+    padding: 9px 12px 11px;
+    background-color: #2a3942;
+    border: 1px solid #2a3942;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    outline: none;
+    color: #d1d7db;
+
+    &::placeholder {
+      color: #8696a0;
+    }
+  }
+
+  button {
+    color: #8696a0;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+  }
+}

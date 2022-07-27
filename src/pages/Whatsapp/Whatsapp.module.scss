@@ -1,0 +1,12 @@
+.whatsapp {
+  display: grid;
+  grid-template-columns: 390px 1fr;
+
+  &__sidebar {
+    height: calc(100vh - var(--height));
+  }
+
+  &__chat {
+    height: 100vh;
+  }
+}

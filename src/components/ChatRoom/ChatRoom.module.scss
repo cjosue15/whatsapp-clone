@@ -1,0 +1,15 @@
+.chatRoom {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background: #0b141a;
+
+  &__bg {
+    position: absolute;
+    opacity: 0.06;
+    inset: 0;
+    background-repeat: repeat;
+  }
+}
+// #0b141a
