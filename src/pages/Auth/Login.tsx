@@ -1,14 +1,32 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
+import { useSocketStore } from '../../context/socketContext';
+import { useUserSocket } from '../../hooks';
+import { IUser, IUserForm } from '../../models';
+
 export const Login = () => {
+  const navigate = useNavigate();
+  const { socket } = useSocketStore();
+  const { addUser } = useUserSocket();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<IUserForm>();
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = ({ name, phone }: IUserForm) => {
+    const user: IUser = {
+      name,
+      phone,
+      id: socket?.id || '',
+    };
+
+    addUser(user);
+    navigate(`/`);
+  };
 
   return (
     <div>

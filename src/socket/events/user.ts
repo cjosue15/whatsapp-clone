@@ -1,4 +1,6 @@
 export enum UserEvents {
   ADD_USER = 'ADD_USER',
   READ_USER = 'READ_USER',
+  ON_MESSAGE = 'ON_MESSAGE',
+  PRIVATE_MESSAGE = 'PRIVATE_MESSAGE',
 }

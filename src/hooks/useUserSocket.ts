@@ -1,19 +1,28 @@
 import { useEffect, useState } from 'react';
-import { useSockets } from './';
+import { IUser } from '../models';
+import { useSocketStore } from '../context/socketContext';
+import { UserEvents } from '../socket/events/user';
 
 export const useUserSocket = () => {
-  const { socket } = useSockets();
-  const [users, setusers] = useState<any[]>([]);
+  // const { socket } = useSocket();
+  const { socket } = useSocketStore();
+  const [users, setusers] = useState<IUser[]>([]);
 
-  // useEffect(() => {
-  //   socket?.on('USERS', (args) => {
-  //     console.log(...args);
-  //   });
+  useEffect(() => {
+    socket?.on(UserEvents.READ_USER, (usersFromSocket) => {
+      setusers([...usersFromSocket]);
+    });
+  }, [socket]);
 
-  //   // return () => {
-  //   //   second;
-  //   // };
-  // }, [socket]);
+  const addUser = (user: IUser) => {
+    if (socket) {
+      console.log({ ...socket });
+      socket.auth = { user, id: socket.id };
+      socket.connect();
+      console.log({ ...socket });
+      socket.emit(UserEvents.ADD_USER, { ...user, id: socket.id });
+    }
+  };
 
-  return { users };
+  return { users, addUser };
 };

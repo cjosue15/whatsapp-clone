@@ -5,17 +5,22 @@ import style from './Item.module.scss';
 
 interface ItemProps {
   name: string;
-  // children: React.ReactNode;
+  shortName: string;
+  onClickItem?: () => void;
+  isHighlighted?: boolean;
 }
 
-export const Item = ({ name }: ItemProps) => {
+export const Item = ({ name, shortName, isHighlighted, onClickItem }: ItemProps) => {
+  const handlerClick = () => {
+    onClickItem?.();
+  };
+
   return (
-    <div className={style.item}>
-      <UserImage name={name} />
+    <div className={`${style.item} ${isHighlighted ? 'selected' : ''}`} onClick={handlerClick}>
+      <UserImage name={shortName} />
       <div className={style.item__body}>
-        {/* {children} */}
         <div className={style['item__body-name']}>
-          <p>Gentleman Owners</p>
+          <p>{name}</p>
           <small>3:08 p. m.</small>
         </div>
         <div className='item__body-message'>

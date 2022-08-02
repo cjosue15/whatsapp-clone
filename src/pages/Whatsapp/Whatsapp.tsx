@@ -4,22 +4,21 @@ import styles from './Whatsapp.module.scss';
 
 import { ChatRoom } from '../../components/ChatRoom';
 import { Sidebar } from '../../components/Sidebar';
-
-import { useUserSocket } from '../../hooks';
+import { useCurrentUser } from '../../context';
 
 export const Whatsapp = () => {
-  const { users } = useUserSocket();
-
-  console.log(users);
+  const { selectedUser } = useCurrentUser();
 
   return (
     <div className={styles.whatsapp}>
       <div className={styles.whatsapp__sidebar}>
         <Sidebar />
       </div>
-      <div className={styles.whatsapp__chat}>
-        <ChatRoom />
-      </div>
+      {selectedUser && (
+        <div className={styles.whatsapp__chat}>
+          <ChatRoom />
+        </div>
+      )}
     </div>
   );
 };
