@@ -9,17 +9,17 @@ export const useUserSocket = () => {
   const [users, setusers] = useState<IUser[]>([]);
 
   useEffect(() => {
-    socket?.on(UserEvents.READ_USER, (usersFromSocket) => {
+    socket?.on(UserEvents.GET_USER, (usersFromSocket) => {
       setusers([...usersFromSocket]);
     });
   }, [socket]);
 
   const addUser = (user: IUser) => {
     if (socket) {
-      console.log({ ...socket });
+      console.log('socket ids', socket.id);
       socket.auth = { user, id: socket.id };
-      socket.connect();
-      console.log({ ...socket });
+      // socket.connect();
+      console.log(socket.id);
       socket.emit(UserEvents.ADD_USER, { ...user, id: socket.id });
     }
   };
