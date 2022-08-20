@@ -1,2 +1,2 @@
-export * from './useUserSocket';
+export * from './useSessionSocket';
 export * from './useMessageSocket';

@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { Socket, io } from 'socket.io-client';
 import { SessionEvents } from '../socket/events/session';
+import { useSessionSocket } from '../hooks/useSessionSocket';
 
 export interface ISocketStore {
   socket: Socket | null;
@@ -18,12 +19,14 @@ interface SocketStoreProps {
 
 export function SocketStoreProvider({ children }: SocketStoreProps) {
   const [socket, setSocket] = useState<Socket | null>(null);
+  const { setCurrentSession } = useSessionSocket();
 
   useEffect(() => {
     const socketTemp = io('http://localhost:4000', { autoConnect: false });
 
     socket?.on(SessionEvents.SESSION, ({ session }) => {
       localStorage.setItem(SessionEvents.SESSION, JSON.stringify(session));
+      setCurrentSession({ ...session });
     });
 
     if (!socket) {
@@ -35,11 +38,8 @@ export function SocketStoreProvider({ children }: SocketStoreProps) {
     if (session && socket) {
       const sessionToSocket = JSON.parse(session);
       console.log(sessionToSocket);
-      // setSocket({...socket,auth:{...sessionToSocket}})
+      setCurrentSession({ ...sessionToSocket });
       socket.auth = { ...sessionToSocket };
-      // setTimeout(() => {
-      // }, 2000);
-      console.log('connected');
       socket?.connect();
     }
 
@@ -47,7 +47,7 @@ export function SocketStoreProvider({ children }: SocketStoreProps) {
       console.log('asdasdadadas');
       // socket?.disconnect();
     };
-  }, [socket]);
+  }, [socket, setCurrentSession]);
 
   return <SocketStore.Provider value={{ socket }}>{children}</SocketStore.Provider>;
 }

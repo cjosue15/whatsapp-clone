@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useSocketStore } from '../../context/socketContext';
-import { useUserSocket } from '../../hooks';
+import { useSessionSocket } from '../../hooks';
 import { IUser, IUserForm } from '../../models';
 
 export const Login = () => {
   const navigate = useNavigate();
   const { socket } = useSocketStore();
-  const { addUser } = useUserSocket();
+  const { addSession } = useSessionSocket();
 
   const {
     register,
@@ -24,7 +24,7 @@ export const Login = () => {
       id: socket?.id || '',
     };
 
-    addUser(user);
+    addSession(user);
     navigate(`/`);
   };
 

@@ -4,24 +4,24 @@ import style from './Sidebar.module.scss';
 
 import { Header } from '../Header/Header';
 import { Item } from '../Item';
-import { useUserSocket } from '../../hooks/useUserSocket';
+import { useSessionSocket } from '../../hooks';
 import { useCurrentUser } from '../../context';
 
 export const Sidebar = () => {
-  const { users } = useUserSocket();
+  const { sessions } = useSessionSocket();
 
   const { setSelectedUser, selectedUser } = useCurrentUser();
 
   return (
     <div className={style.sidebar}>
       <Header />
-      {users.map((user) => (
+      {sessions.map((session) => (
         <Item
-          key={user.id}
-          onClickItem={() => setSelectedUser(user)}
-          name={user.name}
-          shortName={user.name[0].toUpperCase()}
-          isHighlighted={selectedUser?.id === user.id}
+          key={session.sessionID}
+          onClickItem={() => setSelectedUser(session)}
+          name={session.user.name}
+          shortName={session.user.name[0].toUpperCase()}
+          isHighlighted={selectedUser?.id === session.user.id}
         />
       ))}
     </div>
