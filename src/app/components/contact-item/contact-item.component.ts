@@ -1,5 +1,6 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { UserProfileComponent } from '@components/user-profile';
+import { Contact } from '@models/contact.model';
 
 @Component({
   standalone: true,
@@ -10,4 +11,10 @@ import { UserProfileComponent } from '@components/user-profile';
 })
 export class ContactItemComponent {
   @HostBinding('class.w-contact-item') hostClass = true;
+
+  @Input() contactInfo: Contact = {
+    name: '',
+    lastMessage: '',
+    time: '',
+  };
 }

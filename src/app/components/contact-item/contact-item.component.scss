@@ -26,7 +26,8 @@
     }
 
     &-time {
-      color: var(--green);
+      // color: var(--green);
+      color: var(--chat-time);
       font-size: 12px;
       font-weight: 600;
     }
@@ -43,9 +44,15 @@
     }
 
     &-count {
-      color: var(--green);
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      border-radius: 50%;
+      background: var(--green);
       font-size: 12px;
       font-weight: 600;
+      color: #111821;
     }
   }
 }
