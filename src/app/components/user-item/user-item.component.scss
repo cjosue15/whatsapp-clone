@@ -1,0 +1,51 @@
+:host {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 72px;
+}
+
+.w-user-item {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    padding-left: 15px;
+    border-top: 1px solid rgba(134, 150, 160, 0.15);
+  }
+
+  &__title {
+    display: flex;
+
+    &-name {
+      color: var(--stronger-text);
+      display: block;
+      flex: 1;
+    }
+
+    &-time {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  &__message {
+    display: flex;
+
+    &-last {
+      color: var(--text);
+      display: block;
+      flex: 1;
+      font-size: 14px;
+    }
+
+    &-count {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+.w-chat-footer {
+  min-height: 62px;
+  background: var(--panel-bg);
+  padding: 5px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__container {
+    flex: 1;
+
+    input {
+      padding: 9px 12px;
+      border-radius: 8px;
+      min-height: 42px;
+      margin: 0;
+      font-size: 15px;
+      font-family: inherit;
+      background: var(--chat-input-background);
+      border: 1px solid var(--chat-input-background);
+      box-sizing: border-box;
+      color: #8696a0;
+      outline: none;
+      width: 100%;
+      color: var(--text);
+
+      &::placeholder {
+        color: #8696a0;
+      }
+    }
+  }
+
+  &__send {
+    button {
+      cursor: pointer;
+      color: #8696a0;
+      background: transparent;
+      border: none;
+      padding: 0 8px;
+      height: 40px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="w-chat">
+  <header class="w-chat__header">
+    <w-user-profile />
+    <div class="w-chat__header-description">
+      <p>Mama Ale</p>
+      <small>last time, today 10:16 pm</small>
+    </div>
+  </header>
+
+  <main class="w-chat__main">
+    <div class="w-chat__main-background"></div>
+    <div class="w-chat__main-chats">
+      <div class="w-chat__divider"></div>
+
+      <w-message
+        *ngFor="let message of messages"
+        [message]="message.text"
+        [isMessageFromProfile]="message.authorID === currentauthorID"
+      />
+
+      <div class="w-chat__divider"></div>
+    </div>
+  </main>
+
+  <footer>
+    <w-chat-footer />
+  </footer>
+</div>

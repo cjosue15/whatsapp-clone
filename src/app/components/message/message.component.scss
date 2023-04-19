@@ -1,0 +1,38 @@
+:host {
+  margin-bottom: 2px;
+  padding-right: 60px;
+  padding-left: 60px;
+  display: flex;
+
+  &.message-in {
+    justify-content: flex-start;
+  }
+
+  &.message-out {
+    justify-content: flex-end;
+
+    .w-message {
+      &__text {
+        background: var(--chat-message-out);
+      }
+    }
+  }
+}
+
+.w-message {
+  &__container {
+    max-width: 65%;
+  }
+
+  &__text {
+    background: var(--panel-bg);
+    color: var(--chat-message);
+    padding: 6px 7px 8px 9px;
+    border-radius: 8px;
+
+    span {
+      font-size: 13px;
+      line-height: 19px;
+    }
+  }
+}
