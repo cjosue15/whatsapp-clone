@@ -2,12 +2,17 @@ import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ChatFooterComponent } from '@components/chat-footer';
 import { MessageComponent } from '@components/message';
-import { UserProfileComponent } from '@components/user-profile';
+import { ContactPictureComponent } from '@components/contact-picture';
 import { Message } from '@models/message.model';
 
 @Component({
   standalone: true,
-  imports: [NgFor, UserProfileComponent, MessageComponent, ChatFooterComponent],
+  imports: [
+    NgFor,
+    ContactPictureComponent,
+    MessageComponent,
+    ChatFooterComponent,
+  ],
   selector: 'w-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss'],

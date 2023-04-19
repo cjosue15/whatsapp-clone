@@ -9,8 +9,8 @@
     background: var(--panel-bg);
     border-left: 1px solid var(--chat-border);
 
-    w-user-profile ::ng-deep {
-      .user-profile__default {
+    w-contact-picture ::ng-deep {
+      .contact-picture__default {
         width: 40px;
         height: 40px;
       }
