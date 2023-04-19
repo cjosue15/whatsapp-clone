@@ -1,15 +1,16 @@
-.header {
-  height: 60px;
+:host {
+  display: block;
+  height: 64px;
   background: var(--panel-bg);
+  padding: 0px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 
-  picture {
-    display: block;
-    width: 50px;
-    height: 50px;
-
-    img {
-      vertical-align: bottom;
-      max-width: 100%;
+  w-contact-picture ::ng-deep {
+    .contact-picture__default {
+      width: 40px;
+      height: 40px;
     }
   }
 }
