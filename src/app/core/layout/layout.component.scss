@@ -1,0 +1,13 @@
+.layout-whatsapp {
+  display: flex;
+
+  .layout-sidebar {
+    max-width: 400px;
+    width: 100%;
+  }
+
+  .layout-chat {
+    flex: 1;
+    min-height: 100vh;
+  }
+}

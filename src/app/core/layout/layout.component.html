@@ -1,0 +1,11 @@
+<div class="layout-whatsapp">
+  <div class="layout-sidebar">
+    <w-header />
+    <w-sidebar>
+      <ng-content select="w-user-list"></ng-content>
+    </w-sidebar>
+  </div>
+  <div class="layout-chat">
+    <ng-content select="w-chat"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.header {
+  height: 60px;
+  background: var(--panel-bg);
+
+  picture {
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    img {
+      vertical-align: bottom;
+      max-width: 100%;
+    }
+  }
+}
