@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "whatsapp-clone-b314e": {
+      "hosting": {
+        "ng-whatsapp": [
+          "whatsapp-clone-b314e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "whatsapp-clone-b314e"
+  }
+}
