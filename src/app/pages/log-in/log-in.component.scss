@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+  .w-log-in {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 500px;
+
+    h1 {
+      color: var(--text);
+      font-size: 3rem;
+      margin: 0px;
+    }
+
+    &__row {
+      button {
+        background: var(--chat-message-out);
+        font-family: inherit;
+        border: none;
+        color: var(--text);
+        padding: 12px 20px;
+        border-radius: 8px;
+      }
+
+      &.footer {
+        text-align: right;
+      }
+    }
+  }
+}

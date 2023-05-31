@@ -1,0 +1,42 @@
+@use "../../../styles/input" as input;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.w-sign-in {
+  width: 100%;
+  max-width: 500px;
+
+  h1 {
+    color: var(--text);
+    font-size: 3rem;
+    margin-top: 0px;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &-row {
+      button {
+        background: var(--chat-message-out);
+        font-family: inherit;
+        border: none;
+        color: var(--text);
+        padding: 12px 20px;
+        border-radius: 8px;
+      }
+
+      &.footer {
+        text-align: right;
+      }
+    }
+  }
+}

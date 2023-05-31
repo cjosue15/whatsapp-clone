@@ -1,0 +1,21 @@
+<div class="w-sign-in">
+  <h1>Sign in</h1>
+
+  <form [formGroup]="form" class="w-sign-in__form">
+    <div class="w-sign-in__form-row">
+      <w-input label="First name" formControlName="firstName" />
+    </div>
+    <div class="w-sign-in__form-row">
+      <w-input label="Last name" formControlName="lastName" />
+    </div>
+    <div class="w-sign-in__form-row">
+      <w-input label="Email" formControlName="email" />
+    </div>
+    <div class="w-sign-in__form-row">
+      <w-input label="Password" formControlName="password" />
+    </div>
+    <div class="w-sign-in__form-row footer">
+      <button (click)="createUser()">Sign in</button>
+    </div>
+  </form>
+</div>
