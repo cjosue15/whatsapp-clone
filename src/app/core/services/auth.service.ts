@@ -2,11 +2,10 @@ import { inject, Injectable } from '@angular/core';
 import { FirebaseApp } from '@angular/fire/app';
 import {
   Auth,
+  authState,
   createUserWithEmailAndPassword,
-  getAuth,
   signInWithEmailAndPassword,
   UserCredential,
-  authState,
 } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 

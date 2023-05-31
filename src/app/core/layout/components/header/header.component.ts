@@ -1,17 +1,23 @@
-import { Component, HostBinding, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, HostBinding, inject } from '@angular/core';
 import { ContactPictureComponent } from '@components/contact-picture';
+import { AuthService } from '@core/services';
 
 @Component({
   standalone: true,
-  imports: [ContactPictureComponent],
+  imports: [ContactPictureComponent, AsyncPipe],
   selector: 'w-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   @HostBinding('class.w-header') hostClass = true;
 
-  constructor() {}
+  authService = inject(AuthService);
 
-  ngOnInit() {}
+  logOut(): void {
+    this.authService.logOut().subscribe(() => {
+      console.log('logout');
+    });
+  }
 }
