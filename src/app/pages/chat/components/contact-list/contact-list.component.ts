@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
-import { ContactItemComponent } from '@components/contact-item';
 import { Contact } from '@models/contact.model';
+
+import { ContactItemComponent } from '../contact-item';
 
 @Component({
   standalone: true,

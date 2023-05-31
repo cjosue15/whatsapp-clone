@@ -1,11 +1,11 @@
-import { AsyncPipe } from '@angular/common';
 import { Component, HostBinding, inject } from '@angular/core';
-import { ContactPictureComponent } from '@components/contact-picture';
 import { AuthService } from '@core/services';
+
+import { ContactPictureComponent } from '@components/contact-picture';
 
 @Component({
   standalone: true,
-  imports: [ContactPictureComponent, AsyncPipe],
+  imports: [ContactPictureComponent],
   selector: 'w-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
