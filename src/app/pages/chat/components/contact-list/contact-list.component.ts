@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { Contact } from '@models/contact.model';
 
 import { ContactItemComponent } from '../contact-item';
+import { ChatService } from '@pages/chat/services/chat.service';
 
 @Component({
   standalone: true,
@@ -13,115 +14,17 @@ import { ContactItemComponent } from '../contact-item';
       <w-contact-item
         *ngFor="let contact of contacts"
         [contactInfo]="contact"
+        (selected)="selectedContact($event)"
       />
     </div>
   `,
 })
-export class ContactListComponent implements OnInit {
-  contacts: Contact[] = [
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-    {
-      name: 'Ale',
-      time: '12:08 A.M.',
-      lastMessage: 'Hey hola',
-    },
-  ];
+export class ContactListComponent {
+  @Input() contacts: Contact[] = [];
 
-  constructor() {}
+  private _chatService = inject(ChatService);
 
-  ngOnInit() {}
+  selectedContact(contact: Contact): void {
+    this._chatService.changeContactSelected(contact);
+  }
 }

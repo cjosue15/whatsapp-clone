@@ -4,6 +4,7 @@
       type="text"
       placeholder="Write a message here"
       [formControl]="text"
+      (keydown.enter)="sendMessage()"
     />
   </div>
   <div class="w-chat-footer__send">

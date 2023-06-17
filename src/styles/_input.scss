@@ -1,0 +1,19 @@
+@mixin input {
+  padding: 9px 12px;
+  border-radius: 8px;
+  min-height: 42px;
+  margin: 0;
+  font-size: 15px;
+  font-family: inherit;
+  background: var(--chat-input-background);
+  border: 1px solid var(--chat-input-background);
+  box-sizing: border-box;
+  color: #8696a0;
+  outline: none;
+  width: 100%;
+  color: var(--text);
+
+  &::placeholder {
+    color: #8696a0;
+  }
+}

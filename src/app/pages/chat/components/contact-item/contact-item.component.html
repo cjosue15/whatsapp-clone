@@ -2,7 +2,9 @@
 <div class="w-contact-item__container">
   <div class="w-contact-item__title">
     <span class="w-contact-item__title-name">{{ contactInfo.name }}</span>
-    <span class="w-contact-item__title-time">{{ contactInfo.time }}</span>
+    <span class="w-contact-item__title-time">{{
+      contactInfo.lastMessageTime | dateMessage
+    }}</span>
   </div>
   <div class="w-contact-item__message">
     <span class="w-contact-item__message-last">{{

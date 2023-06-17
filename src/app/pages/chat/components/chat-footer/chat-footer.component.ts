@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -11,10 +11,14 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class ChatFooterComponent {
   text: FormControl<string | null> = new FormControl('');
 
+  @Output() sendText = new EventEmitter<string>();
+
   constructor() {}
 
   sendMessage(): void {
-    console.log(this.text.value);
-    this.text.setValue(null);
+    if (this.text.value) {
+      this.sendText.emit(this.text.value);
+      this.text.setValue(null);
+    }
   }
 }

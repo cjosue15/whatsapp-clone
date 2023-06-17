@@ -11,6 +11,7 @@ import { User } from '@core/models';
 import { AuthService, UserService } from '@core/services';
 import { Router } from '@angular/router';
 import { WInputComponent } from '@components/input';
+import { UserCredential } from '@angular/fire/auth';
 
 interface FormSignIn {
   firstName: FormControl<string | null>;
@@ -42,6 +43,7 @@ export default class SignInComponent {
   createUser(): void {
     const valueForm = this.form.value;
     const user: User = {
+      uid: '',
       email: valueForm.email || '',
       lastName: valueForm.lastName || '',
       firstName: valueForm.firstName || '',
@@ -50,12 +52,13 @@ export default class SignInComponent {
     this.authService
       .createUser({ ...user, password: valueForm.password || '' })
       .pipe(
-        tap((userCreated: any) => console.log(userCreated)),
+        tap((userCreated: UserCredential) => {
+          user.uid = userCreated.user.uid;
+        }),
         switchMap(() => this.userService.saveUser(user))
       )
       .subscribe((value) => {
-        console.log(value);
-        this.router.navigateByUrl('/chat');
+        this.router.navigateByUrl('/');
       });
   }
 }

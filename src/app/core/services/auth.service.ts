@@ -23,6 +23,10 @@ export class AuthService {
     return this.authState;
   }
 
+  get currentUserUID(): string {
+    return this.currentUser()?.uid || '';
+  }
+
   logInWithEmailAndPassword(
     email: string,
     password: string
@@ -36,6 +40,10 @@ export class AuthService {
     return fromPromise<UserCredential>(
       createUserWithEmailAndPassword(this.auth, user.email, user.password)
     );
+  }
+
+  currentUser() {
+    return this.auth.currentUser;
   }
 
   logOut() {

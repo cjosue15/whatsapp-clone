@@ -1,4 +1,5 @@
 export interface Message {
-  authorID: string;
-  text: string;
+  from: string;
+  message: string;
+  time?: Date;
 }
