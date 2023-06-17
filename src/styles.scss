@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
+  --gap: 20px;
   --background: #111b21;
   --panel-bg: #202c33;
   --green: #00a884;
@@ -19,6 +20,13 @@ body {
   margin: 0;
   font-family: "Noto Sans", sans-serif;
   background: var(--background);
+}
+
+.container {
+  max-width: 1600px;
+  width: calc(100% - (2 * var(--gap)));
+  height: calc(100% - (2 * var(--gap)));
+  margin: 0 auto;
 }
 
 ::-webkit-scrollbar {

@@ -1,11 +1,13 @@
-<div class="layout-whatsapp">
-  <div class="layout-sidebar">
-    <w-header />
-    <w-sidebar>
-      <ng-content select="w-contact-list"></ng-content>
-    </w-sidebar>
-  </div>
-  <div class="layout-chat">
-    <ng-content></ng-content>
+<div class="container">
+  <div class="layout-whatsapp">
+    <div class="layout-sidebar">
+      <w-header />
+      <w-sidebar>
+        <ng-content select="w-contact-list"></ng-content>
+      </w-sidebar>
+    </div>
+    <div class="layout-chat">
+      <ng-content></ng-content>
+    </div>
   </div>
 </div>

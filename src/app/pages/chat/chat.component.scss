@@ -41,7 +41,7 @@
     border-left: 1px solid var(--chat-border);
     position: relative;
     overflow: hidden;
-    height: calc(100vh - ($header-height + $footer-height));
+    height: calc(100vh - ($header-height + $footer-height) - (2 * var(--gap)));
 
     &-background {
       position: absolute;
